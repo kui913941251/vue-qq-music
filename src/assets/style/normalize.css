@@ -1,0 +1,14 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+}
+
+body {
+  overflow: hidden;
+}
+
+li {
+  list-style: none;
+}

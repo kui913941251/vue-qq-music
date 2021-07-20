@@ -1,32 +1,35 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+  <div id="app" ref="app">
     <router-view/>
+    <bottom />
+    <player-full />
+    <play-list />
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import Bottom from "./components/common/bottom/Bottom"
+import PlayerFull from "./components/common/player/PlayerFull"
+import PlayList from "./components/common/player/PlayList"
 
-#nav {
-  padding: 30px;
+export default {
+  name: "App",
+  components: {
+    Bottom,
+    PlayerFull,
+    PlayList
+  },
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+  mounted() {
+    console.log(this.$route);
+    this.$refs.app.style.height = window.innerHeight + "px"
   }
+}
+</script>
+
+<style lang="scss" scoped>
+#app {
+  /* height: -webkit-fill-available; */
+  background-color: $background-color;
 }
 </style>
