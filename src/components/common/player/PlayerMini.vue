@@ -6,7 +6,7 @@
       </div>
       <div class="song-list"></div>
       <div class="song-title">
-        <span>白米様(白饭达人) - 松村沙友理·........</span>
+        <!-- <span>白米様(白饭达人) - 松村沙友理·........</span> -->
       </div>
       <div class="play-button" @click.stop="">
         <i v-if="!playingStatus" class="iconfont icon-bofang2" @click="handlePlay"></i>

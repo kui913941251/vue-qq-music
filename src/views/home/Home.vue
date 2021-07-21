@@ -40,6 +40,7 @@ export default {
   async created() {
     this.activeNav = this.navs[0].name
     let songUrl = await Api.getSongUrl({songmid:"0047RMg02FndTg"})
+    console.log(songUrl)
     this.$refs.audio.src = songUrl
   },
   methods: {
