@@ -9,6 +9,10 @@ import 'lib-flexible'
 
 Vue.config.productionTip = false
 
+import eventBus from './utils/eventBus'
+Vue.prototype.$eventBus = eventBus
+
+
 new Vue({
   router,
   store,

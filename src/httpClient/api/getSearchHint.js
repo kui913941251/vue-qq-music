@@ -1,11 +1,9 @@
-import request from "../config/requestConstruct"
+import request from '../../utils/request'
 
 export default async function getSearchHint(params) {
-  // https://c.y.qq.com/splcloud/fcgi-bin/smartbox_new.fcg
-  return await request.get("/splcloud/fcgi-bin/smartbox_new.fcg", {
-    headers: {
-
-    },
-    key: params.key
+  return request({
+    url: '/getSearchHint',
+    method: 'get',
+    params,
   })
 }

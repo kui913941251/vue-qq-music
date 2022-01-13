@@ -7,50 +7,47 @@
 </template>
 
 <script>
-import NavBar from "@/components/common/navBar/NavBar"
-import SearchInput from "@/components/common/searchInput/SearchInput"
+import NavBar from '@/components/common/navBar/NavBar'
+import SearchInput from '@/components/common/searchInput/SearchInput'
 
-import Api from "@/httpClient"
+import Api from '@/httpClient'
 
 export default {
-  name: "Home",
+  name: 'Home',
   components: {
     NavBar,
-    SearchInput
+    SearchInput,
   },
   data() {
     return {
       navs: [
         {
-          name: "推荐",
+          name: '推荐',
         },
         {
-          name: "音乐馆"
+          name: '音乐馆',
         },
         {
-          name: "电台"
+          name: '电台',
         },
         {
-          name: "播客"
-        }
+          name: '播客',
+        },
       ],
-      activeNav: ""
+      activeNav: '',
     }
   },
   async created() {
     this.activeNav = this.navs[0].name
-    let songUrl = await Api.getSongUrl({songmid:"0047RMg02FndTg"})
-    console.log(songUrl)
-    this.$refs.audio.src = songUrl
+    let { data: res } = await Api.getSongDetail({ songMid: '0047RMg02FndTg' })
+    this.$refs.audio.src = res.songUrl
   },
   methods: {
     changeActive(name) {
       this.activeNav = name
-    }
-  }
+    },
+  },
 }
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

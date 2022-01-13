@@ -1,8 +1,8 @@
 import request from '../../utils/request'
 
-export default function getSearch(params) {
+export default function getSongLyric(params) {
   return request({
-    url: '/getSearchHint',
+    url: '/getSongLyric',
     method: 'get',
     params,
   })

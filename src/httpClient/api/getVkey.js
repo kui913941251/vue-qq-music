@@ -1,4 +1,4 @@
-import request from "../config/requestConstruct"
+import request from "../../utils/request"
 
 export default async function(params = {}) {
   let data = {

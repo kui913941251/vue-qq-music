@@ -1,6 +1,6 @@
 <template>
   <div id="app" ref="app">
-    <router-view/>
+    <router-view />
     <bottom />
     <player-full />
     <play-list />
@@ -8,22 +8,25 @@
 </template>
 
 <script>
-import Bottom from "./components/common/bottom/Bottom"
-import PlayerFull from "./components/common/player/PlayerFull"
-import PlayList from "./components/common/player/PlayList"
+import Bottom from './components/common/bottom/Bottom'
+import PlayerFull from './components/common/player/PlayerFull'
+import PlayList from './components/common/player/PlayList'
 
 export default {
-  name: "App",
+  name: 'App',
   components: {
     Bottom,
     PlayerFull,
-    PlayList
+    PlayList,
   },
 
   mounted() {
-    console.log(this.$route);
-    this.$refs.app.style.height = window.innerHeight + "px"
-  }
+    this.$refs.app.style.height = window.innerHeight + 'px'
+    let currentSong = localStorage.getItem('currentSong')
+    if (currentSong) {
+      this.$store.commit('changeCurrent', JSON.parse(currentSong))
+    }
+  },
 }
 </script>
 
